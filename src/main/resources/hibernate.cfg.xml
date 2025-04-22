@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+     <property name="connection.username">postgres</property>
+     <property name="connection.password">Maxmax12</property>
+     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+     <property name="show_sql">true</property>
+     <property name="format_sql">true</property>
+      <property name="hibernate.hbm2ddl.auto">validate</property>
+
+<!--      второй уровень кэша-->
+      <property name="hibernate.cache.provider_class">org.ehcache.jsr107.EhcacheCachingProvider</property>
+      <property name="hibernate.cache.use_second_level_cache">true</property>
+      <property name="hibernate.cache.use_query_cache">true</property>
+      <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
+
+
+      <!--подключение сущности-->
+      <mapping class="com.mndev.entity.UserEntity"/>
+      <mapping class="com.mndev.entity.Company"/>
+      <mapping class="com.mndev.entity.Profile"/>
+      <mapping class="com.mndev.entity.UsersChats"/>
+      <mapping class="com.mndev.entity.Chats"/>
+      <mapping class="com.mndev.entity.Payment"/>
+    <!-- DB schema will be updated if needed -->
+
+  </session-factory>
+</hibernate-configuration>
